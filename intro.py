@@ -83,10 +83,62 @@ print(b)
     
     
  
+            # topic:--
+            # #Linked list input
 
-
+#A Node is something which stores current value and next reference data
  
+#taking input from the linked list
+#we need to take input untill u get -1
+
+               #Task :to take input of the linked list
+
+               #a linked list has head(first node) and tail (last node)
 
 
+
+
+
+class Node:
+   def __init__(self,data):
+      #actually a node consist of data and next value i.e ref of next value so here we are storing next
+      #value as None..
+      self.data=data
+      self.next=None
+      #to get the head of the linked list
+def takeInput():
+   # below is splitted based on space seperated
+   inputList =[int(ele) for ele in input().split()]
+
+   #initializing head to be None
+   head =None
+
+   # a for loop is used to iterate through the above inputList
+   for currentData in inputList:
+      #a simple condition if our current data is -1 then break i.e terminates and exits the loop
+      if currentData ==-1:
+         break
+      #if our current data is not equal to -1  then create  a new node,with the below statement a node is created
+      newNode = Node(currentData)
+#this means no node has been created i.e first node
+      if head is None:
+         #then our node should to point newNode
+         head =newNode
+      #except for the first node u will not work on head,if it is not the first node ,start from head keep on traversing till next becomes not none
+      else:
+         curr =head
+         while curr.next is not None:
+            curr=curr.next
+         #after that u will reach to last node ,store the ref of new node
+         curr.next = newNode
+#then our head 
+
+   return head
+
+
+#below takeInput is inbuilt function
+head =takeInput()
+
+#pls use  chatgpt or codingninja linked list course lecture 5 for dry run understanding
 
 
