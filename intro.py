@@ -106,8 +106,17 @@ class Node:
       self.data=data
       self.next=None
       #to get the head of the linked list
+def printLL(head):
+   #performs on head is not none
+   while head is not None:
+   #here we are converting it to string since it head is an int and we need output in the form of
+   #-> arrow function 
+      print(head.data + "->",end="")
+      head =head.next
+   print("None")
+   return 
 def takeInput():
-   # below is splitted based on space seperated
+   # below is splitted based on space seperated 
    inputList =[int(ele) for ele in input().split()]
 
    #initializing head to be None
@@ -137,8 +146,28 @@ def takeInput():
 
 
 #below takeInput is inbuilt function
+#this is main.head 
 head =takeInput()
+printLL(head)
+printLL(head)
+
+
+#scenario of output happens like this
+# 1 2 3 4 5 6 -1
+#1->2->3->4->5->6->None
+#1->2->3->4->5->6->None
+
+
 
 #pls use  chatgpt or codingninja linked list course lecture 5 for dry run understanding
+
+
+#for the above take input elements as 1 2 3 4 5 -1 --->1->2-> 3-> 4-> 5 None
+#and take some rememberable reference our wish
+
+
+#Topic:
+#print a linked list
+#the  code is done in the above lines only please do check
 
 
