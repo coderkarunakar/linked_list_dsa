@@ -171,3 +171,16 @@ printLL(head)
 #the  code is done in the above lines only please do check
 
 
+#Time comlexity analysis 
+#for the above code the time complexity is O(n2)
+#the only step is taking the time  is traversing for the elements for the n th elements u need 
+#to traverse for the n-1 elements for n-1 elements u need to traverse for  the n-2 elements  this is the step taking time and we can optimize it
+
+
+
+#1 2 3 4 5 -1 output 1->2->3->4->5 
+#0 +1 +2+3+....+(n-1)  #here for the first element u have done is no iteration so it is 0 th step
+
+
+#  n(n-1)/2 =n^2-n/2  =n^2/2
+#so our time complexity for the above code is O(n^2)
