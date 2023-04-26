@@ -110,17 +110,20 @@ def printLL(head):
    #performs on head is not none
    while head is not None:
    #here we are converting it to string since it head is an int and we need output in the form of
-   #-> arrow function 
-      print(head.data + "->",end="")
+   #-> arrow function and the printLL is an string and head is an integer so we can not do like that so we are simply converting it to string ...
+      print(str(head.data) + "->",end="")
       head =head.next
+      #by the above the loop was done and finally we need to print None and simply return 
    print("None")
    return 
 def takeInput():
    # below is splitted based on space seperated 
-   inputList =[int(ele) for ele in input().split()]
+   inputList =[int(ele) for ele in input("please enter input").split()]
 
    #initializing head to be None
    head =None
+   #initializing the tail to be none-
+   tail=None  #since initially we are not taking any element so head and tail to be none
 
    # a for loop is used to iterate through the above inputList
    for currentData in inputList:
@@ -131,16 +134,15 @@ def takeInput():
       newNode = Node(currentData)
 #this means no node has been created i.e first node
       if head is None:
-         #then our node should to point newNode
+         #then our node should to point newNode,here head is assigned in the first out only
          head =newNode
+         tail=newNode #because for a single element a head and tail should be same for the first time
       #except for the first node u will not work on head,if it is not the first node ,start from head keep on traversing till next becomes not none
       else:
-         curr =head
-         while curr.next is not None:
-            curr=curr.next
-         #after that u will reach to last node ,store the ref of new node
-         curr.next = newNode
-#then our head 
+         tail.next=newNode
+         tail=newNode
+
+
 
    return head
 
@@ -149,8 +151,9 @@ def takeInput():
 #this is main.head 
 head =takeInput()
 printLL(head)
-printLL(head)
+printLL(head)  #with this only a simple copy of above code is created... thats it nothing changes
 
+#after optimizing the code we get the time complexity as O(N)
 
 #scenario of output happens like this
 # 1 2 3 4 5 6 -1
@@ -184,3 +187,39 @@ printLL(head)
 
 #  n(n-1)/2 =n^2-n/2  =n^2/2
 #so our time complexity for the above code is O(n^2)
+
+
+
+#Linked list input 2:in this session we are going to optimize the taking input part of the linked list 
+
+
+#in our code when ever a new element is need to be inserted we start from the head and reach till the last 
+
+
+#example:
+#1-> 2-> 3-> 4-> 5 ->None
+
+#if supppose we have numbers like 1->2->3->None
+#here we want to  add 4 we need to traverse from the begining from 1 and till none and we can add None
+#even this happens for all the elements in the what ever u want to add u need to simply traverse from the begining so this makes our t.c to be O(n^2)
+
+
+
+                     #8 lecture Number
+#Optimizing the taking input from the part of the linkedlist
+ 
+                  #IN OUR PREVIOUS CODE
+ #till now our code has functionality like when ever a new node is inserted we start at the 
+ #begging and we need to reach till last (i.e when we reach curr.next is None if it is not none then we keep on iterating the code untill we get curr.next is None)
+
+
+#in order to optimize this above code we can simply  stop iterating over the all elements and simply we can give like finding the last reference of the node and we can insert it,just we need reference of the last node i.e tail and as we know the reference of the first node is head
+
+
+#we can follow the above process by using only 3 steps 
+#1.create new node
+#2.tail.next=new node
+#tail=new node
+#just by following the above steps we can simply optimize our code
+
+#at each iteration we need to maintain the reference of the last node and that u have maintained to the tail  ,this is an O(N ) only,for the code simply refer the above code..
