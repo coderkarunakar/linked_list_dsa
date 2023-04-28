@@ -223,3 +223,62 @@ printLL(head)  #with this only a simple copy of above code is created... thats i
 #just by following the above steps we can simply optimize our code
 
 #at each iteration we need to maintain the reference of the last node and that u have maintained to the tail  ,this is an O(N ) only,for the code simply refer the above code..
+
+
+
+
+
+
+#lecture 11
+#print i the node in a given linked list
+#given head pointer and from the head we can traverse any node and an i pointer and the i can 0,1,2,....anything with this we can traverse in the given linked list and i have to go to that i th  node and print that node   the indexing starts from zero
+
+#Approach :we would start from head and we would traverse in the forward direction and trying to reach the i th node
+#we wil be having a current which would be pointing a head node and we would traverse the node one by one and we would keep on increasing the count where in the count would be zero ,and in each iteration i would increase the count and the current pointer so that i reach the i th node,i need to ensure that my current should not be null because if my curr is null i cant go forward and my count should be less than  i ,because if my count is equal i am at the i th node and i can come out of the loop ,till the movement where the curr is <i and the curr is not null i need to traverse 
+#only 2 conditions 1.count <i 2.curr!=null
+
+
+
+
+#Insert at the i th position in a  linked list 
+# Question :u are given a linked list 3->4->5->1->2
+#Task is to implement the function u are given a linked list (i.e u are given a head of the linked list in which u have to insert an element)  the position is the ith is given to u and the data through which the new node will be inserted to u is given to u (insert (head ,i,data)) and have to return the head as well because the head of the linked list can be changed..
+
+#we can insert the elements from the range of 0  to length of linked list  this is the range of i 
+
+
+
+#example explaination
+
+
+#here i is the index position
+#3(i=0) 4(i=1) 5(i=2) 1(i=3) 2(i=4)
+
+#given data we need to insert i=2 and data is 6
+#step 1:first we need to create a node for 6       
+
+#then our given linked list get changed like this 3 4 6 5 1 2 
+#so inorder to do this we need a pointer at 4 and 5 i.e 2 pointers and at which position u want to insert lets say i.e current and its previous position is important lets say it is prev     and curr this 2 pointers are needed to insert any element
+
+
+
+#when the count reaches i then i will do this steps
+#steps to insert 
+# 1st :create a new node with data 6 ,
+#then prev.next=new node
+# new node.next=curr    
+
+#if we have to insert at the index 0  then our test case would fail for the above approach
+#because in step 2 prev.next if no prev then it would point to none i.e none .next is attribute error
+#so inorder to pass this test case we need to create a condition that if prev is none then head is new node
+
+
+#with this all the test cases will be passed
+#approach is as follows
+#create a new node
+#if prev is  none :
+      #head is None:
+#else:
+      #prev.next =new node
+#new node .next =curr
+# return head
