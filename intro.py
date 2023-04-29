@@ -116,6 +116,40 @@ def printLL(head):
       #by the above the loop was done and finally we need to print None and simply return 
    print("None")
    return 
+
+#insert at the ith position of a linked list and whose head is provided ,at the position which u want to insert i.e i and the data at which the new node is created,
+# if the i<0 and i>len (linked list) then we need to return same linked list
+
+def length(head):
+   count=0
+   while head is not None:
+      count=count+1
+      head=head.next
+   return count
+
+def insertAtI(head,i,data):
+   if i<0 or i >length(head):
+      return head
+   
+   count=0
+   prev=None
+   curr=head
+   while count<i:
+      prev=curr
+      #we are maintaining the curr because we dont want to loose the reference of head and in the end we need to return the head of the linked list 
+      curr=curr.next
+      count=count+1
+      #with this our new node will be created
+
+   newNode= Node(data)
+   if prev is not None:
+      prev.next=newNode
+   else:
+      head=newNode
+   newNode.next=curr
+   return head
+
+
 def takeInput():
    # below is splitted based on space seperated 
    inputList =[int(ele) for ele in input("please enter input").split()]
@@ -152,6 +186,17 @@ def takeInput():
 head =takeInput()
 printLL(head)
 printLL(head)  #with this only a simple copy of above code is created... thats it nothing changes
+head=insertAtI(head,2,6)
+printLL(head)
+head=insertAtI(head,0,9)
+printLL(head)
+
+#checking by inserting at the last position i.e length of the linked list
+head=insertAtI(head,7,10)
+printLL(head)
+
+
+#just please do dry run for some of the test cases so that u can understand it in a better way
 
 #after optimizing the code we get the time complexity as O(N)
 
@@ -282,3 +327,8 @@ printLL(head)  #with this only a simple copy of above code is created... thats i
       #prev.next =new node
 #new node .next =curr
 # return head
+
+
+# 13. lecture:
+#insert at the ith position linked list problem
+#
