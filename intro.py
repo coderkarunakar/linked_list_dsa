@@ -120,6 +120,9 @@ def printLL(head):
 #insert at the ith position of a linked list and whose head is provided ,at the position which u want to insert i.e i and the data at which the new node is created,
 # if the i<0 and i>len (linked list) then we need to return same linked list
 
+#if i need to insert at i th position first i need to reach that i the position first
+#for reaching the i th position i need to maintain the count ,initially am at zero th position and i will traverse till i reach the i th position i.e keep on traversing till am lesser than the i th position,and keep on incrementing the count ,when the count becomes i then i will come out of the loop that means i need to insert at the i th position
+
 def length(head):
    count=0
    while head is not None:
@@ -148,6 +151,14 @@ def insertAtI(head,i,data):
       head=newNode
    newNode.next=curr
    return head
+
+
+
+
+#if i need to insert at i th position first i need to reach that i the position first
+#for reaching the i th position i need to maintain the count ,initially am at zero th position and i will traverse till i reach the i th position i.e keep on traversing till am lesser than the i th position,and keep on incrementing the count ,when the count becomes i then i will come out of the loop that means i need to insert at the i th position
+
+
 
 
 def takeInput():
@@ -330,5 +341,7 @@ printLL(head)
 
 
 # 13. lecture:
-#insert at the ith position linked list problem
-#
+#insert at the ith position linked list problem using iteratively
+#lets implement the function,our function is insert at the ith position of a linked list whose head will be  provided to you at the position which u want to insert i.e i data with which the new node will be created,first check wheater we can insert or not if we cannot insert we need to return the same linked list ,and we cannot insert if the i is less than zero,because min i can be zero and the max i can be i can insert at the length of the linked list, we can insert only at the max length of the linked list  
+#if i<0  or i>length of the linked list we cannot do anything we need to return the same head
+#we will traverse till our head becomes none we will traverse all the elements and we will count all  the elements parallely and in the end i will return the count
