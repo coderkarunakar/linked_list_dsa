@@ -373,4 +373,3 @@ printLL(head)
 #delete curr
 #2 special cases i.e if delete node is at index 0 and in this case prev is none so it can cause an errorr so be care full and other case would be if the node doesnot exist like if we have only 8 nodes and we are trying to delete  9 th node which does not exist ,we need to take care of this 2 special cases
 
- 
