@@ -345,3 +345,32 @@ printLL(head)
 #lets implement the function,our function is insert at the ith position of a linked list whose head will be  provided to you at the position which u want to insert i.e i data with which the new node will be created,first check wheater we can insert or not if we cannot insert we need to return the same linked list ,and we cannot insert if the i is less than zero,because min i can be zero and the max i can be i can insert at the length of the linked list, we can insert only at the max length of the linked list  
 #if i<0  or i>length of the linked list we cannot do anything we need to return the same head
 #we will traverse till our head becomes none we will traverse all the elements and we will count all  the elements parallely and in the end i will return the count
+
+
+
+
+
+
+
+
+#14Lecture:
+#Delete Node -hint:
+#Approach:
+
+#here we need to delete a node from the linked list   ,in the problem we have a head pointer and we need to delete a node(which will be specified by a index ) and the indexing starts from zero
+
+
+#we need to reach the index-1 node to delete the ith node (i.e our target node)
+
+#we need to make prev as variable and we need to traverse through the linked list till we reach ith -1 i.e our target node to be deleted 
+
+#when we reach ith-1 node we need to do 2things i.e first we need to delete the current node
+#and we need to check our current node exist or not and ,we need to make our current node next should be next to our prev node..current is the node to be deleted    ,we need next as well  because after deleting the current node our prev node should point to the next of the current node.so we need a  reference for the next as well,so we need 3 pointers i.e prev ,curr,next
+# 
+# 
+# steps:
+# prev.next=next
+#delete curr
+#2 special cases i.e if delete node is at index 0 and in this case prev is none so it can cause an errorr so be care full and other case would be if the node doesnot exist like if we have only 8 nodes and we are trying to delete  9 th node which does not exist ,we need to take care of this 2 special cases
+
+ 
