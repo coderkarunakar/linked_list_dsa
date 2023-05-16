@@ -130,6 +130,34 @@ def length(head):
       head=head.next
    return count
 
+def insertAtIR(head,i,data):
+
+    #if index is less than 0 means i.e negative  here u dont need  to do anything just simply return the same linked list
+   if i<0:
+      return head
+   #when i come to any element i.e head of the linked list,the induction hypothesis is lets insert at ith position recursively,call this function to insert at i-1 position ,of the next part of the linked list
+   if i==0:
+      newNode = Node(data)
+      #since am inserting at the 0th position i.e new node .next should be the head
+      newNode.next=head
+      return newNode
+   
+   #if at any point if our head becomes none that means our i  was more than the length of the linked list ,here we cannot do anything just simply return none,at an empty linked list you nee d to insert at zero th position that is allowed  ,so u need to write i=0 before head  is none,so u will write i=0 before none
+   if head is None:
+      return None
+
+          
+
+
+
+  
+   
+   #this below line does that u will get head of the linked list after inserting at i-1 position of that part  of the linked list
+   smallHead=insertAtIR(head.next,i-1,data)
+   head.next = smallHead
+   #need to return our head of the linked list our head remains same 
+   return head
+
 def insertAtI(head,i,data):
    if i<0 or i >length(head):
       return head
@@ -197,13 +225,13 @@ def takeInput():
 head =takeInput()
 printLL(head)
 printLL(head)  #with this only a simple copy of above code is created... thats it nothing changes
-head=insertAtI(head,2,6)
+head=insertAtIR(head,2,6)
 printLL(head)
-head=insertAtI(head,0,9)
+head=insertAtIR(head,0,9)
 printLL(head)
 
 #checking by inserting at the last position i.e length of the linked list
-head=insertAtI(head,7,10)
+head=insertAtIR(head,7,10)
 printLL(head)
 
 
@@ -373,3 +401,35 @@ printLL(head)
 #delete curr
 #2 special cases i.e if delete node is at index 0 and in this case prev is none so it can cause an errorr so be care full and other case would be if the node doesnot exist like if we have only 8 nodes and we are trying to delete  9 th node which does not exist ,we need to take care of this 2 special cases
 
+
+#16.lecture :
+
+#insert at i th position Recursively
+#our problem is u are given a linked list ,and u are given a head of the linked list in which u want to insert ,u are given a position where u will insert     and u are given a data through which u are given a node and insert that node in the linked list and u have to do it recursively
+
+#example : given  data    1->2->4->7->6 and index 2 ,need to insert data 8
+#expected output is 1->2->8->4->7->6 
+
+#steps for doing  it in recursive manner 
+#let our function is insert(head,i,data)
+#the induction hypothesis is that 
+
+
+
+
+#17th lecture :
+#  insert at ith  Recursively code:
+#we will have head ,i  , and data
+
+
+#for the normal approach the time complexity  of the code is O(n)
+#printLL traverse the linked list   and prints each node takes O(N)
+#length  traverses the linked list and count the number of nodes which takes O(n)
+#insertAtI function iterarates through the linked list to find the insertion position which takes O(n ) 
+#therefore the overall time complexity is O(n) here n is the nodes in the linked list
+
+
+# for normal approach the space complexity is as follows
+#the memory required to store the linked list is proportional  to the number of nodes,so it is O(n) where n is number of nodes in the linked list
+
+# here  we have used some fewer variables i.e count ,prev,curr ,newNode but these variables have only const space   and do not depend on the size of the linked list there fore overall space complexity is O(n)
