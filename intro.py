@@ -433,3 +433,6 @@ printLL(head)
 #the memory required to store the linked list is proportional  to the number of nodes,so it is O(n) where n is number of nodes in the linked list
 
 # here  we have used some fewer variables i.e count ,prev,curr ,newNode but these variables have only const space   and do not depend on the size of the linked list there fore overall space complexity is O(n)
+
+
+
